@@ -19,4 +19,13 @@ NumPy
 Shapely
 Matplotlib
 
+Project structure:--
+
+Wildfire-Boundary-Detection/
+├── app.py
+├── templates/
+│   └── index.html
+├── static/
+└── README.md
+
 📌 This project is intended for academic learning and demonstration purposes and does not represent a real-world wildfire monitoring system.
