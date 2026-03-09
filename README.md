@@ -11,26 +11,5 @@ This project illustrates how image processing and computational geometry can wor
 📐 Constructs a convex hull to approximate the wildfire boundary
 📊 Visualizes hotspots, boundary, and affected zone automatically
 
-🛠️ Technologies Used
-Python
-Flask
-OpenCV
-NumPy
-Shapely
-Matplotlib
-
-Project structure:--
-
-Project structure:
-
-```text
-Wildfire-Boundary-Detection/
-├── app.py
-├── templates/
-│   └── index.html
-├── static/
-└── README.md
-```
-
 
 📌 This project is intended for academic learning and demonstration purposes and does not represent a real-world wildfire monitoring system.
