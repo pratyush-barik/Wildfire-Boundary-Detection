@@ -175,6 +175,6 @@ def send_static_file(filename):
     return send_from_directory(app.config["STATIC_FOLDER"], filename)
 
 
-# Export Flask app for Vercel
 application = app
-```
+
+
