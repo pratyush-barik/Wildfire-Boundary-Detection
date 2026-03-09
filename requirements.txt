@@ -1,5 +1,5 @@
-Flask
-opencv-python
+flask
+opencv-python-headless
 numpy
-shapely
 matplotlib
+shapely
