@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+# Base directory (project root)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_FOLDER = os.path.join(BASE_DIR, "templates")
@@ -42,7 +43,9 @@ def find_hotspots(image_path):
     combined_mask = cv2.bitwise_or(mask1, mask2)
 
     contours, _ = cv2.findContours(
-        combined_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+        combined_mask,
+        cv2.RETR_EXTERNAL,
+        cv2.CHAIN_APPROX_SIMPLE
     )
 
     hotspot_coords = []
@@ -96,7 +99,13 @@ def analyze_and_plot(hotspot_coords, result_filename):
         label=f"Hotspots ({len(hotspot_coords)} points)",
     )
 
-    plt.fill(hull_x, hull_y, "red", alpha=0.3, label="Affected Zone")
+    plt.fill(
+        hull_x,
+        hull_y,
+        "red",
+        alpha=0.3,
+        label="Affected Zone"
+    )
 
     plt.title("Wildfire Boundary Detection")
     plt.xlabel("X Coordinate")
@@ -139,7 +148,10 @@ def upload_file():
 
         result_image_name = f"result_{hash(file.filename)}.png"
 
-        area, plot_url, error = analyze_and_plot(hotspots, result_image_name)
+        area, plot_url, error = analyze_and_plot(
+            hotspots,
+            result_image_name
+        )
 
         os.remove(temp_path)
 
@@ -159,7 +171,4 @@ def upload_file():
 @app.route("/static/<filename>")
 def send_static_file(filename):
     return send_from_directory(app.config["STATIC_FOLDER"], filename)
-
-
-handler = app
 ```
