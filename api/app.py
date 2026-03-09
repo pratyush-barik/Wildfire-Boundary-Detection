@@ -5,18 +5,20 @@ import numpy as np
 from flask import Flask, request, render_template, send_from_directory
 from shapely.geometry import MultiPoint
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-STATIC_FOLDER = "static"
+TEMPLATE_FOLDER = os.path.join(BASE_DIR, "templates")
+STATIC_FOLDER = os.path.join(BASE_DIR, "static")
 TEMP_FOLDER = "/tmp"
+
+app = Flask(__name__, template_folder=TEMPLATE_FOLDER)
 
 app.config["STATIC_FOLDER"] = STATIC_FOLDER
 
-if not os.path.exists(STATIC_FOLDER):
-    os.makedirs(STATIC_FOLDER)
+os.makedirs(STATIC_FOLDER, exist_ok=True)
 
 
 def find_hotspots(image_path):
@@ -159,6 +161,5 @@ def send_static_file(filename):
     return send_from_directory(app.config["STATIC_FOLDER"], filename)
 
 
-# Required for Vercel
 handler = app
 ```
