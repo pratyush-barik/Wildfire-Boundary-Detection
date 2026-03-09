@@ -1,5 +1,3 @@
-from app import app
-
-# Expose Flask application for Vercel
+from .app import app
 
 application = app
