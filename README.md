@@ -28,7 +28,6 @@ Wildfire-Boundary-Detection/
 ├── app.py
 ├── templates/
 │   └── index.html
-├── static/
 └── README.md
 ```
 
